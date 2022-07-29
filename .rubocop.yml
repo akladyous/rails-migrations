@@ -1,0 +1,470 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+
+inherit_from:
+    - ".rubocop-rails.yml"
+    - ".rubocop-rspec.yml"
+
+require:
+    - rubocop-rails
+    - rubocop-rspec
+
+AllCops:
+    TargetRubyVersion: 2.7
+    TargetRailsVersion: 6.0
+    Exclude:
+        - "**/db/migrate/*"
+        - "**/Gemfile.lock"
+        - "**/Rakefile"
+        - "**/rails"
+        - "**/vendor/**/*"
+        - "**/spec_helper.rb"
+        - "node_modules/**/*"
+        - "bin/*"
+
+###########################################################
+###################### Rubocop ############################
+###########################################################
+
+# You can find all configuration options for rubocop here: https://docs.rubocop.org/rubocop/cops_bundler.html
+
+# ============== Layout =================
+
+Layout/ClassStructure:
+    ExpectedOrder:
+        - module_inclusion
+        - constants
+        - association
+        - public_attribute_macros
+        - public_delegate
+        - macros
+        - initializer
+        - public_class_methods
+        - public_methods
+        - protected_attribute_macros
+        - protected_methods
+        - private_attribute_macros
+        - private_delegate
+        - private_methods
+
+Layout/EmptyLineAfterMultilineCondition:
+    Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+    Enabled: true
+
+Layout/FirstArrayElementIndentation:
+    EnforcedStyle: consistent
+
+Layout/FirstArrayElementLineBreak:
+    Enabled: true
+
+Layout/FirstHashElementIndentation:
+    EnforcedStyle: consistent
+
+Layout/FirstHashElementLineBreak:
+    Enabled: true
+
+Layout/LineLength:
+    Max: 150
+    Exclude:
+        - "**/spec/**/*"
+
+Layout/MultilineArrayBraceLayout:
+    EnforcedStyle: new_line
+
+Layout/MultilineOperationIndentation:
+    EnforcedStyle: indented
+
+Layout/MultilineHashBraceLayout:
+    EnforcedStyle: new_line
+
+Layout/MultilineHashKeyLineBreaks:
+    Enabled: true
+
+Layout/MultilineMethodCallBraceLayout:
+    EnforcedStyle: new_line
+
+Layout/MultilineMethodDefinitionBraceLayout:
+    EnforcedStyle: new_line
+
+Layout/SpaceAroundMethodCallOperator:
+    Enabled: true
+
+Layout/SpaceInLambdaLiteral:
+    EnforcedStyle: require_space
+
+Lint/AmbiguousBlockAssociation:
+    Exclude:
+        - "**/spec/**/*"
+
+Lint/AssignmentInCondition:
+    AllowSafeAssignment: false
+
+Lint/BinaryOperatorWithIdenticalOperands:
+    Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+    Enabled: true
+
+Lint/DuplicateElsifCondition:
+    Enabled: true
+
+Lint/DuplicateRequire:
+    Enabled: true
+
+Lint/DuplicateRescueException:
+    Enabled: true
+
+Lint/EmptyConditionalBody:
+    Enabled: true
+
+Lint/EmptyFile:
+    Enabled: true
+
+Lint/FloatComparison:
+    Enabled: true
+
+Lint/MissingSuper:
+    Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+    Enabled: true
+
+Lint/NumberConversion:
+    Enabled: true
+
+Lint/RaiseException:
+    Enabled: true
+
+Lint/SelfAssignment:
+    Enabled: true
+
+Lint/TrailingCommaInAttributeDeclaration:
+    Enabled: true
+
+Lint/UnusedBlockArgument:
+    IgnoreEmptyBlocks: false
+
+Lint/UnusedMethodArgument:
+    IgnoreEmptyMethods: false
+
+Lint/UselessMethodDefinition:
+    Enabled: true
+
+# ============== Metric =================
+
+Metrics/AbcSize:
+    Max: 45
+
+Metrics/BlockLength:
+    CountComments: false
+    Max: 50
+    Exclude:
+        - "**/spec/**/*"
+        - "**/*.rake"
+        - "**/factories/**/*"
+        - "**/config/routes.rb"
+
+Metrics/ClassLength:
+    CountAsOne: ["array", "hash"]
+    Max: 150
+
+Metrics/CyclomaticComplexity:
+    Max: 10
+
+Metrics/MethodLength:
+    CountAsOne: ["array", "hash"]
+    Max: 30
+
+Metrics/ModuleLength:
+    CountAsOne: ["array", "hash"]
+    Max: 250
+    Exclude:
+        - "**/spec/**/*"
+
+Metrics/PerceivedComplexity:
+    Max: 10
+
+# ============== Variable ==================
+
+# Most of the Naming configurations are enabled by default, we should enable or disable configuration depending on what the team needs
+
+### Example
+##
+#  Naming/VariableNumber:
+#    Enabled: false
+##
+###
+
+# ============== Style ================
+
+Style/AccessorGrouping:
+    Enabled: true
+
+Style/ArrayCoercion:
+    Enabled: true
+
+Style/AutoResourceCleanup:
+    Enabled: true
+
+Style/BisectedAttrAccessor:
+    Enabled: true
+
+Style/CaseLikeIf:
+    Enabled: true
+
+Style/ClassAndModuleChildren:
+    Enabled: false
+
+Style/CollectionMethods:
+    Enabled: true
+
+Style/CombinableLoops:
+    Enabled: true
+
+Style/CommandLiteral:
+    EnforcedStyle: percent_x
+
+Style/ConstantVisibility:
+    Enabled: true
+
+Style/Documentation:
+    Enabled: false
+
+Style/ExplicitBlockArgument:
+    Enabled: true
+
+Style/GlobalStdStream:
+    Enabled: true
+
+Style/HashEachMethods:
+    Enabled: true
+
+Style/HashLikeCase:
+    Enabled: true
+
+Style/HashTransformKeys:
+    Enabled: true
+
+Style/HashTransformValues:
+    Enabled: true
+
+Style/ImplicitRuntimeError:
+    Enabled: true
+
+Style/InlineComment:
+    Enabled: true
+
+Style/IpAddresses:
+    Enabled: true
+
+Style/KeywordParametersOrder:
+    Enabled: true
+
+Style/MethodCallWithArgsParentheses:
+    Enabled: true
+
+Style/MissingElse:
+    Enabled: true
+
+Style/MultilineMethodSignature:
+    Enabled: true
+
+Style/OptionalBooleanParameter:
+    Enabled: true
+
+Style/RedundantAssignment:
+    Enabled: true
+
+Style/RedundantBegin:
+    Enabled: true
+
+Style/RedundantFetchBlock:
+    Enabled: true
+
+Style/RedundantFileExtensionInRequire:
+    Enabled: true
+
+Style/RedundantSelfAssignment:
+    Enabled: true
+
+Style/SingleArgumentDig:
+    Enabled: true
+
+Style/StringConcatenation:
+    Enabled: true
+# inherit_from: .rubocop_todo.yml
+# require:
+#     - rubocop/cop/internal_affairs
+#     - rubocop-performance
+#     - rubocop-rspec
+#     - rubocop-rake
+
+# AllCops:
+#     NewCops: enable
+#     Exclude:
+#         - "vendor/**/*"
+#         - "spec/fixtures/**/*"
+#         - "tmp/**/*"
+#         - ".git/**/*"
+#         - "bin/*"
+#     TargetRubyVersion: 2.6
+#     SuggestExtensions: false
+
+# Naming/PredicateName:
+#     # Method define macros for dynamically generated method.
+#     MethodDefinitionMacros:
+#         - define_method
+#         - define_singleton_method
+#         - def_node_matcher
+#         - def_node_search
+
+# Style/AccessorGrouping:
+#     Exclude:
+#         - lib/rubocop/formatter/base_formatter.rb
+#         - lib/rubocop/cop/offense.rb
+
+# Style/FormatStringToken:
+#     # Because we parse a lot of source codes from strings. Percent arrays
+#     # look like unannotated format string tokens to this cop.
+#     Exclude:
+#         - spec/**/*
+
+# Style/IpAddresses:
+#     # The test for this cop includes strings that would cause offenses
+#     Exclude:
+#         - spec/rubocop/cop/style/ip_addresses_spec.rb
+
+# Layout/EndOfLine:
+#     EnforcedStyle: lf
+
+# Layout/ClassStructure:
+#     Enabled: true
+
+# Layout/RedundantLineBreak:
+#     Enabled: true
+
+# Layout/TrailingWhitespace:
+#     AllowInHeredoc: false
+
+# Lint/AmbiguousBlockAssociation:
+#     Exclude:
+#         - "spec/**/*.rb"
+
+# Layout/HashAlignment:
+#     EnforcedHashRocketStyle:
+#         - key
+#         - table
+#     EnforcedColonStyle:
+#         - key
+#         - table
+
+# Layout/LineLength:
+#     Max: 100
+#     AllowedPatterns:
+#         - !ruby/regexp /\A
+#           +(it|describe|context|shared_examples|include_examples|it_behaves_like)
+#           ["']/
+
+# Lint/InterpolationCheck:
+#     Exclude:
+#         - "spec/**/*.rb"
+
+# Lint/UselessAccessModifier:
+#     MethodCreatingMethods:
+#         - "def_matcher"
+#         - "def_node_matcher"
+
+# Metrics/BlockLength:
+#     Exclude:
+#         - "Rakefile"
+#         - "**/*.rake"
+#         - "spec/**/*.rb"
+#         - "**/*.gemspec"
+
+# Metrics/ClassLength:
+#     Exclude:
+#         - lib/rubocop/config_obsoletion.rb
+#         - lib/rubocop/options.rb
+
+# Metrics/ModuleLength:
+#     Exclude:
+#         - "spec/**/*.rb"
+
+# Naming/InclusiveLanguage:
+#     Enabled: true
+#     CheckStrings: true
+#     FlaggedTerms:
+#         auto-correct:
+#             Suggestions:
+#                 - autocorrect
+#         auto_correct:
+#             Suggestions:
+#                 - autocorrect
+#         behaviour:
+#             Suggestions:
+#                 - behavior
+#         offence:
+#             Suggestions:
+#                 - offense
+#     Exclude:
+#         - lib/rubocop/cop/naming/inclusive_language.rb
+#         - lib/rubocop/cop/mixin/auto_corrector.rb
+#         - spec/rubocop/cop/naming/inclusive_language_spec.rb
+
+# RSpec/FilePath:
+#     Exclude:
+#         - spec/rubocop/cop/internal_affairs/redundant_let_rubocop_config_new_spec.rb
+#         - spec/rubocop/formatter/junit_formatter_spec.rb
+
+# RSpec/PredicateMatcher:
+#     EnforcedStyle: explicit
+
+# RSpec/MessageSpies:
+#     EnforcedStyle: receive
+
+# RSpec/NestedGroups:
+#     Max: 7
+
+# RSpec/MultipleMemoizedHelpers:
+#     Enabled: false
+
+# Performance/CollectionLiteralInLoop:
+#     Exclude:
+#         - "Rakefile"
+#         - "spec/**/*.rb"
+
+# Performance/EndWith:
+#     SafeMultiline: false
+
+# Performance/StartWith:
+#     SafeMultiline: false
+
+# RSpec/StubbedMock:
+#     Enabled: false
+
+# InternalAffairs/ExampleDescription:
+#     Include:
+#         - "spec/rubocop/cop/**/*.rb"
+
+# InternalAffairs/UndefinedConfig:
+#     Include:
+#         - "lib/rubocop/cop/**/*.rb"
+#     Exclude:
+#         - "lib/rubocop/cop/correctors/**/*.rb"
+#         - "lib/rubocop/cop/mixin/**/*.rb"
+
+# InternalAffairs/StyleDetectedApiUse:
+#     Exclude:
+#         - "lib/rubocop/cop/mixin/percent_array.rb"
+
+# Gemspec/DependencyVersion:
+#     Enabled: true

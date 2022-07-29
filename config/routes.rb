@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "home", to: "home#index"
+  # match 'home/index', to: 'home#index', via: %i[get post]
+  # get "home/:id", to: "home#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # get ':controller(/:action(/:id))'
+  # match ':controller(/:action(/:id))', via: :get
+
+  root "home#index"
+  # match '/', to: 'home#index', via: :get
 end

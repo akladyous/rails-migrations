@@ -1,0 +1,19 @@
+<% console %>
+<div class="container mt-5">
+    <h4>home controller</h4>
+        <%= current_page?(controller: 'home', action: 'index') %>
+    <br>
+    <p>current path <%= @current_path %></p>
+    <br>
+    <p>
+        url_for
+        <%= url_for(@current_path) %>
+    </p>
+
+    <p><%= controller.view_paths %></p>
+    <p><%= controller.controller_name %></p>
+    <p><%= controller.action_name %></p>
+    <p><%= url_for(request.params) %></p>
+</div>
+
+
