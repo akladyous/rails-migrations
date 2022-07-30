@@ -3,6 +3,7 @@
     <h1>Blogs Home Page</h1>
 
     <div id="blogs">
+
     <% @blogs.each do |blog| %>
         <%= render partial: blog %>
         <p><%= link_to "Show this blog", blog,  html_options={'class': 'one'}%></p>
@@ -12,6 +13,7 @@
     <%= link_to "New blog", new_blog_path %>
 
     <div id="individual-blog">
+        <h5>individual-blog</h5>
         <%= yield  %>
     </div>
 </div>
