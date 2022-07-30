@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # match 'home/index', to: 'home#index', via: %i[get post]
   # get "home/:id", to: "home#index"
 
+  get  'home/form', to: "home#show"
+  post 'home/form_result', to: "home#create"
+
   # get ':controller(/:action(/:id))'
   # match ':controller(/:action(/:id))', via: :get
 

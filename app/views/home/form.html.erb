@@ -1,0 +1,68 @@
+<div class="container mb-3 w-50">
+    <%= form_with url: home_form_result_path, method: :post do |form| %>
+        <%= form.hidden_field :parent_id, value: "foo" %>
+        <div class="mb-3">
+            <%= form.label :text, "text", {'class': 'form-label'} %>
+            <%= form.text_field :text, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :message, "text-area", {'class': 'form-label'} %>
+            <%= form.text_area :message, {'rows': 5, 'cols': 50, 'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :password, "password", {'class': 'form-label'} %>
+            <%= form.password_field :password, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :price, "price", {'class': 'form-label'} %>
+            <%= form.number_field :price, in: 1.0..20.0, step: 0.5, 'class': 'form-control' %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :discount, "discount", {'class': 'form-label'} %>
+            <%= form.range_field :discount, in: 1..100, value: 50, 'class': 'form-control' %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :born_on, "born_on", {'class': 'form-label'} %>
+            <%= form.date_field :born_on, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :started_at, "started_at", {'class': 'form-label'} %>
+            <%= form.time_field :started_at, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :graduation_day, "graduation_day", {'class': 'form-label'} %>
+            <%= form.datetime_local_field :graduation_day, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :birthday_month, "birthday_month", {'class': 'form-label'} %>
+            <%= form.month_field :birthday_month, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :birthday_week, "birthday_week", {'class': 'form-label'} %>
+            <%= form.week_field :birthday_week, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :name, "name", {'class': 'form-label'} %>
+            <%= form.search_field :name, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :address, "address", {'class': 'form-label'} %>
+            <%= form.email_field :address, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :phone, "phone", {'class': 'form-label'} %>
+            <%= form.telephone_field :phone, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :homepage, "homepage", {'class': 'form-label'} %>
+            <%= form.url_field :homepage, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :favorite_color, "favorite_color", {'class': 'form-label'} %>
+            <%= form.color_field :favorite_color, {'class': 'form-control'} %>
+        </div>
+        <div class="mb-3">
+            <%= form.submit "Search" %>
+        </div>
+    <% end %>
+</div>

@@ -1,6 +1,16 @@
 class HomeController < ApplicationController
   # layout "application"
 
+  def show
+    render 'home/form'
+  end
+
+  def create
+    debugger
+    form_data = params[:message]
+    render "home/form_result"
+  end
+
   def get_current_page
     current_page?(controller: 'home', action: 'index')
   end
