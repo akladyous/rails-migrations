@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blogs
   get "home", to: "home#index"
   # match 'home/index', to: 'home#index', via: %i[get post]
   # get "home/:id", to: "home#index"

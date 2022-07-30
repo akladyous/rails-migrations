@@ -1,5 +1,5 @@
 <% console %>
-<div class="container mt-5">
+<div class="container mt-5" id="home template">
     <h4>home controller</h4>
         <%= current_page?(controller: 'home', action: 'index') %>
     <br>
@@ -14,6 +14,9 @@
     <p><%= controller.controller_name %></p>
     <p><%= controller.action_name %></p>
     <p><%= url_for(request.params) %></p>
+
+    <p><%= current_controller %></p>
+
 </div>
 
 

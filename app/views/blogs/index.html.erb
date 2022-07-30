@@ -1,0 +1,18 @@
+<div class="container" id="blog template">
+    <p style="color: green"><%= notice %></p>
+    <h1>Blogs Home Page</h1>
+
+    <div id="blogs">
+    <% @blogs.each do |blog| %>
+        <%= render partial: blog %>
+        <p><%= link_to "Show this blog", blog,  html_options={'class': 'one'}%></p>
+    <% end %>
+    </div>
+
+    <%= link_to "New blog", new_blog_path %>
+
+    <div id="individual-blog">
+        <%= yield  %>
+    </div>
+</div>
+<p style="color: green"><%= notice %></p>

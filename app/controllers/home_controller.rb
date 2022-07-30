@@ -6,9 +6,8 @@ class HomeController < ApplicationController
   end
 
   def current_controller
-    controller_action = Rails.application.routes.recognize_path("home")
+    controller_action = Rails.application.routes.recognize_path(params[:controller])
     # current_path = path
-    return controller_action
   end
 
   def index
@@ -19,4 +18,5 @@ class HomeController < ApplicationController
     # @current_path = path
 
   end
+  helper_method :current_controller
 end

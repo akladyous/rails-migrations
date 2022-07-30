@@ -65,6 +65,7 @@ group :development do
     gem 'rubocop-rails', '~> 2.15', '>= 2.15.2'
     gem 'rubocop', '~> 1.32'
     gem 'solargraph', '~> 0.45.0'
+    gem "byebug", "~> 11.1"
 end
 
 group :test do
@@ -75,3 +76,5 @@ group :test do
 end
 
 gem 'ruby-lsp', '~> 0.2.1', group: :development
+
+# gem "byebug", "~> 11.1", :groups => [:development, :test]
